@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Full Gallery | MKT Motion Lab — Munna Kumar Thakur, Abu Dhabi</title>
+  <meta name="description" content="Full project gallery of Munna Kumar Thakur — MKT Motion Lab. Laser shows, projection mapping, LED events, photography, and live event visuals from UAE and international stages.">
+  <meta name="keywords" content="MKT Motion Lab gallery, event photography Abu Dhabi, laser show UAE, projection mapping, LED event gallery, Munna Kumar Thakur portfolio">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="author" content="Munna Kumar Thakur">
+  <meta name="theme-color" content="#050508">
+
+  <meta property="og:title" content="Full Gallery | MKT Motion Lab">
+  <meta property="og:description" content="Complete portfolio gallery — laser shows, LED programming, projection mapping, and live event photography from international stages.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mktmotionlab.net/gallery.html">
+  <meta property="og:image" content="https://mktmotionlab.net/OG%20image.png">
+  <meta property="og:image:alt" content="MKT Motion Lab — Full Gallery">
+  <meta property="og:site_name" content="MKT Motion Lab">
+
+  <link rel="canonical" href="https://mktmotionlab.net/gallery.html">
+  <link rel="icon" type="image/png" href="Favicon%20Icone.png">
+  <link rel="apple-touch-icon" href="Favicon%20Icone.png">
+
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ── GALLERY PAGE EXTRAS ── */
+    .gl-hero {
+      min-height: 46vh;
+      background: var(--bg2);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: calc(var(--nav-h) + 60px) clamp(20px,4vw,60px) clamp(40px,5vw,70px);
+      position: relative; overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+    .gl-hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(232,184,75,.07) 0%, transparent 70%),
+                  radial-gradient(ellipse 50% 50% at 10% 80%, rgba(77,184,255,.05) 0%, transparent 60%);
+    }
+    .gl-hero-grid {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background-image: linear-gradient(rgba(255,255,255,.015) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,.015) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .gl-hero-content { position: relative; z-index: 2; }
+    .gl-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--ff-m); font-size: .62rem; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--chalk3);
+      transition: color .2s; margin-bottom: 32px;
+    }
+    .gl-back:hover { color: var(--gold); }
+    .gl-back i { font-size: .7rem; }
+    .gl-title {
+      font-family: var(--ff-d); font-size: clamp(3rem,7vw,7rem);
+      line-height: .88; letter-spacing: .03em; color: var(--chalk); margin-bottom: 20px;
+    }
+    .gl-title span { color: var(--gold); }
+    .gl-sub {
+      font-family: var(--ff-b); font-style: italic;
+      font-size: clamp(.95rem,1.6vw,1.15rem);
+      color: var(--chalk2); max-width: 50ch; line-height: 1.7; margin-bottom: 28px;
+    }
+    .gl-count {
+      font-family: var(--ff-m); font-size: .62rem; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--chalk3);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .gl-count::before { content: ''; width: 22px; height: 1px; background: var(--gold); }
+    .gl-count span { color: var(--gold); }
+
+    /* ── FILTER BAR ── */
+    .gl-filters-wrap {
+      position: sticky; top: var(--nav-h); z-index: 100;
+      background: rgba(5,5,8,.95);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px clamp(20px,4vw,60px);
+    }
+    .gl-filters {
+      display: flex; gap: 8px; flex-wrap: nowrap;
+      overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none;
+      max-width: var(--max); margin-inline: auto;
+    }
+    .gl-filters::-webkit-scrollbar { display: none; }
+    .gl-filter-btn {
+      font-family: var(--ff-m); font-size: .62rem; letter-spacing: .12em;
+      text-transform: uppercase; padding: 7px 16px;
+      background: transparent; border: 1px solid var(--border);
+      color: var(--chalk2); border-radius: 20px;
+      cursor: pointer; transition: all .2s; white-space: nowrap; flex-shrink: 0;
+    }
+    .gl-filter-btn.active, .gl-filter-btn:hover {
+      background: var(--gold); border-color: var(--gold); color: var(--bg);
+    }
+
+    /* ── MASONRY GRID ── */
+    .gl-section { padding: clamp(40px,5vw,70px) clamp(20px,4vw,60px); background: var(--bg); }
+    .gl-category-label {
+      font-family: var(--ff-d); font-size: clamp(1.4rem,3vw,2.2rem);
+      letter-spacing: .04em; color: var(--chalk); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .gl-category-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .gl-category-label span { color: var(--gold); font-family: var(--ff-m); font-size: .58rem; letter-spacing: .16em; }
+    .gl-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px; margin-bottom: 48px;
+    }
+    @media (max-width: 1100px) { .gl-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .gl-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .gl-grid { grid-template-columns: 1fr; } }
+
+    .gl-grid .g-item { aspect-ratio: 4/3; }
+    .gl-grid .g-item.tall { aspect-ratio: 3/4; }
+    .gl-grid .g-item.wide { grid-column: span 2; aspect-ratio: 16/9; }
+    @media (max-width: 480px)  { .gl-grid .g-item.wide { grid-column: span 1; aspect-ratio: 4/3; } }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none; position: fixed; inset: 0; z-index: 8000;
+      background: rgba(5,5,8,.97);
+      align-items: center; justify-content: center;
+      padding: 20px;
+    }
+    .lightbox.open { display: flex; }
+    .lb-inner {
+      position: relative; max-width: min(1200px, 95vw); max-height: 90vh;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .lb-img {
+      max-width: 100%; max-height: 88vh;
+      object-fit: contain; border-radius: var(--r);
+      user-select: none;
+    }
+    .lb-close {
+      position: fixed; top: 22px; right: 22px;
+      width: 44px; height: 44px; border: 1px solid var(--border);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; color: var(--chalk2); cursor: pointer;
+      background: var(--bg3); transition: all .2s; z-index: 8001;
+    }
+    .lb-close:hover { border-color: var(--gold); color: var(--gold); }
+    .lb-prev, .lb-next {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      width: 48px; height: 48px; border: 1px solid var(--border);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; color: var(--chalk2); cursor: pointer;
+      background: rgba(5,5,8,.7); backdrop-filter: blur(8px);
+      transition: all .2s; z-index: 8001;
+    }
+    .lb-prev { left: clamp(10px,2vw,24px); }
+    .lb-next { right: clamp(10px,2vw,24px); }
+    .lb-prev:hover, .lb-next:hover { border-color: var(--gold); color: var(--gold); }
+    .lb-counter {
+      position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
+      font-family: var(--ff-m); font-size: .62rem; letter-spacing: .14em;
+      color: var(--chalk3); background: rgba(5,5,8,.7);
+      padding: 6px 16px; border-radius: 20px;
+      backdrop-filter: blur(8px); z-index: 8001;
+    }
+    .lb-label {
+      position: fixed; bottom: 28px; right: clamp(20px,4vw,60px);
+      font-family: var(--ff-m); font-size: .58rem; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--gold);
+      background: rgba(5,5,8,.7); padding: 5px 14px;
+      border-radius: 20px; backdrop-filter: blur(8px); z-index: 8001;
+    }
+
+    /* ── EMPTY STATE ── */
+    .gl-empty {
+      grid-column: 1/-1; padding: 80px 20px; text-align: center;
+      font-family: var(--ff-m); font-size: .7rem; letter-spacing: .14em;
+      color: var(--chalk3); text-transform: uppercase;
+    }
+
+    /* ── BACK TO TOP ── */
+    .gl-back-top {
+      display: flex; justify-content: center; gap: 14px;
+      flex-wrap: wrap; padding: clamp(32px,4vw,52px) clamp(20px,4vw,60px) 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cursor -->
+  <div class="cursor" id="cursorDot"  style="position:fixed;top:0;left:0;pointer-events:none;z-index:9999;"><div class="cursor-dot"  id="cDot"></div></div>
+  <div class="cursor" id="cursorRing" style="position:fixed;top:0;left:0;pointer-events:none;z-index:9998;"><div class="cursor-ring" id="cRing"></div></div>
+
+  <!-- NAV -->
+  <nav id="mainNav">
+    <div class="nav-inner">
+      <div class="nav-logo"><a href="index.html" style="text-decoration:none;color:inherit;">MKT<span class="dot">.</span></a></div>
+      <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#skills">Capabilities</a></li>
+        <li><a href="index.html#software">Skills</a></li>
+        <li><a href="index.html#work" class="active">Gallery</a></li>
+        <li><a href="index.html#videos">Showreel</a></li>
+        <li><a href="index.html#experience">About</a></li>
+      </ul>
+      <a href="index.html#contact" class="nav-cta">Hire Me</a>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <nav class="mob-nav" aria-label="Mobile navigation">
+    <div class="mob-nav-grid">
+      <a href="index.html#home"       class="mob-nav-item"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="index.html#skills"     class="mob-nav-item"><i class="fas fa-bolt"></i><span>Skills</span></a>
+      <a href="index.html#work"       class="mob-nav-item active"><i class="fas fa-images"></i><span>Gallery</span></a>
+      <a href="index.html#videos"     class="mob-nav-item"><i class="fas fa-film"></i><span>Reel</span></a>
+      <a href="index.html#experience" class="mob-nav-item"><i class="fas fa-user"></i><span>About</span></a>
+      <a href="index.html#contact"    class="mob-nav-item"><i class="fas fa-envelope"></i><span>Contact</span></a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="gl-hero">
+    <div class="gl-hero-bg"></div>
+    <div class="gl-hero-grid"></div>
+    <div class="gl-hero-content">
+      <a href="index.html#work" class="gl-back"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+      <h1 class="gl-title">Full<br><span>Gallery</span></h1>
+      <p class="gl-sub">Complete visual archive — laser shows, projection mapping, LED programming, event photography and stage production from international stages.</p>
+      <div class="gl-count">Total: <span id="totalCount">0</span> Images &nbsp;·&nbsp; <span id="catCount">0</span> Projects</div>
+    </div>
+  </div>
+
+  <!-- FILTER BAR (sticky) -->
+  <div class="gl-filters-wrap" id="filtersWrap">
+    <div class="gl-filters" id="glFilters">
+      <button class="gl-filter-btn active" data-cat="all">All Work</button>
+      <button class="gl-filter-btn" data-cat="ADEK">ADEK — Laser Show</button>
+      <button class="gl-filter-btn" data-cat="DIWAN">Diwan Event</button>
+      <button class="gl-filter-btn" data-cat="ECONOMIC FORUM">Economic Forum</button>
+      <button class="gl-filter-btn" data-cat="ENS">ENS Event</button>
+      <button class="gl-filter-btn" data-cat="FAB">FAB Event</button>
+      <button class="gl-filter-btn" data-cat="HH MASNSOUR AWARD">HH Mansour Award</button>
+      <button class="gl-filter-btn" data-cat="ICP">ICP Event</button>
+      <button class="gl-filter-btn" data-cat="JAPAN">Japan Showcase</button>
+      <button class="gl-filter-btn" data-cat="K AWARD">Khalifa Award</button>
+      <button class="gl-filter-btn" data-cat="NCEMA">NCEMA Event</button>
+      <button class="gl-filter-btn" data-cat="Photography">Photography</button>
+    </div>
+  </div>
+
+  <!-- GALLERY SECTIONS -->
+  <main class="gl-section" id="galleryMain">
+    <!-- Dynamically rendered by JS -->
+  </main>
+
+  <!-- BACK BUTTONS -->
+  <div class="gl-back-top" style="background:var(--bg);padding-bottom:clamp(40px,5vw,70px);">
+    <a href="index.html" class="btn-gold"><i class="fas fa-home"></i> Back to Home</a>
+    <a href="index.html#contact" class="btn-wire">Hire Me <i class="fas fa-arrow-right"></i></a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-bg-text" aria-hidden="true">MKT</div>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">MKT<span>.</span>MOTIONLAB</div>
+          <p class="footer-tagline">Precision visual engineering for the world's most demanding stages. From 3D conceptualization to final show execution.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Full Gallery</a></li>
+            <li><a href="index.html#videos">Showreel</a></li>
+            <li><a href="index.html#skills">Capabilities</a></li>
+            <li><a href="index.html#experience">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Connect</div>
+          <div class="social-row">
+            <a href="https://www.linkedin.com/in/munna-kumar-thakur-763407195" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/mk__3dmotionlab" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/mkthakuronx" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://youtube.com/@editormunna" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Munna Kumar Thakur. All Rights Reserved.</span>
+        <span>Designed in Abu Dhabi, UAE.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <div class="lb-inner">
+      <img id="lbImg" src="" alt="" class="lb-img">
+    </div>
+    <button class="lb-close" id="lbClose" aria-label="Close"><i class="fas fa-times"></i></button>
+    <button class="lb-prev"  id="lbPrev"  aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+    <button class="lb-next"  id="lbNext"  aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+    <div class="lb-counter" id="lbCounter">1 / 1</div>
+    <div class="lb-label"   id="lbLabel"></div>
+  </div>
+
+  <script>
+  (function(){
+    'use strict';
+
+    /* ── CURSOR ── */
+    const dot  = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    let mx=0, my=0, rx=0, ry=0;
+    document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+    (function animCursor(){
+      if(dot)  dot.style.transform  = `translate(${mx}px,${my}px)`;
+      rx += (mx-rx)*.11; ry += (my-ry)*.11;
+      if(ring) ring.style.transform = `translate(${rx}px,${ry}px)`;
+      requestAnimationFrame(animCursor);
+    })();
+
+    /* ── NAV SCROLL ── */
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), { passive:true });
+
+    /* ── SCROLL REVEAL ── */
+    const revIO = new IntersectionObserver(entries => {
+      entries.forEach(en => { if(en.isIntersecting){ en.target.classList.add('visible'); revIO.unobserve(en.target); } });
+    }, { threshold:.05 });
+
+    /* ── ALL GALLERY DATA ──
+       BASE PATH: Gallery/ (upload "FOR WEBSITE RESIZED" folder as "Gallery" on Hostinger)
+       Each entry: { src, alt, cat, wide?, tall? }
+    ── */
+    const BASE = 'Gallery/';
+    const CATEGORIES = [
+      {
+        id: 'ADEK',
+        label: 'ADEK — Laser Show',
+        desc: 'Laser show programming and design for ADEK events',
+        images: [
+          { f:'ADEK/LaserShow (1).jpg', alt:'ADEK laser show programming',     wide:true  },
+          { f:'ADEK/LaserShow (2).jpg', alt:'ADEK laser beam design'                       },
+          { f:'ADEK/LaserShow (3).jpg', alt:'ADEK laser show stage'                        },
+          { f:'ADEK/LaserShow (4).jpg', alt:'ADEK laser show visuals'                      },
+          { f:'ADEK/LaserShow (5).jpg', alt:'ADEK laser display'                           },
+          { f:'ADEK/LaserShow (6).jpg', alt:'ADEK laser effects'                           },
+          { f:'ADEK/LaserShow (7).jpg', alt:'ADEK laser programming'                       },
+          { f:'ADEK/LaserShow (8).jpg', alt:'ADEK laser finale',               wide:true  }
+        ]
+      },
+      {
+        id: 'DIWAN',
+        label: 'Diwan Event',
+        desc: 'Full production and visual design for Diwan event',
+        images: [
+          { f:'DIWAN/1.jpg', alt:'Diwan event stage production',  wide:true  },
+          { f:'DIWAN/2.jpg', alt:'Diwan event LED wall'                       },
+          { f:'DIWAN/3.jpg', alt:'Diwan event lighting'                       },
+          { f:'DIWAN/4.jpg', alt:'Diwan event visuals'                        },
+          { f:'DIWAN/5.jpg', alt:'Diwan event ceremony'                       },
+          { f:'DIWAN/6.jpg', alt:'Diwan event show'                           },
+          { f:'DIWAN/7.jpg', alt:'Diwan event grand finale',      wide:true  }
+        ]
+      },
+      {
+        id: 'ECONOMIC FORUM',
+        label: 'Economic Forum',
+        desc: 'AV production and visual systems for Economic Forum',
+        images: [
+          { f:'ECONOMIC FORUM/1.jpg', alt:'Economic Forum stage visuals',  wide:true  },
+          { f:'ECONOMIC FORUM/2.jpg', alt:'Economic Forum LED production'              },
+          { f:'ECONOMIC FORUM/3.jpg', alt:'Economic Forum event setup'                },
+          { f:'ECONOMIC FORUM/4.jpg', alt:'Economic Forum media display'              },
+          { f:'ECONOMIC FORUM/5.jpg', alt:'Economic Forum closing ceremony'           }
+        ]
+      },
+      {
+        id: 'ENS',
+        label: 'ENS Event',
+        desc: 'Stage technology and visual engineering for ENS',
+        images: [
+          { f:'ENS/ENS (1).jpg', alt:'ENS event stage',        wide:true  },
+          { f:'ENS/ENS (2).jpg', alt:'ENS LED programming'                },
+          { f:'ENS/ENS (3).jpg', alt:'ENS event production'               },
+          { f:'ENS/ENS (4).jpg', alt:'ENS show visuals'                   },
+          { f:'ENS/ENS (5).jpg', alt:'ENS event lighting'                 }
+        ]
+      },
+      {
+        id: 'FAB',
+        label: 'FAB Event',
+        desc: 'Visual production and LED systems for FAB',
+        images: [
+          { f:'FAB/1.jpg', alt:'FAB event stage',       wide:true  },
+          { f:'FAB/2.jpg', alt:'FAB LED wall setup'                },
+          { f:'FAB/3.jpg', alt:'FAB event lighting'               },
+          { f:'FAB/4.jpg', alt:'FAB show production'              },
+          { f:'FAB/5.jpg', alt:'FAB event visuals'                },
+          { f:'FAB/6.jpg', alt:'FAB stage design'                 },
+          { f:'FAB/7.jpg', alt:'FAB event finale',      wide:true  }
+        ]
+      },
+      {
+        id: 'HH MASNSOUR AWARD',
+        label: 'HH Mansour Award',
+        desc: 'Lighting and visual design for HH Mansour Award ceremony',
+        images: [
+          { f:'HH MASNSOUR AWARD/1.jpg', alt:'HH Mansour Award ceremony stage',    wide:true  },
+          { f:'HH MASNSOUR AWARD/2.jpg', alt:'HH Mansour Award event lighting'                },
+          { f:'HH MASNSOUR AWARD/3.jpg', alt:'HH Mansour Award production setup'              },
+          { f:'HH MASNSOUR AWARD/4.jpg', alt:'HH Mansour Award gala visuals'                  }
+        ]
+      },
+      {
+        id: 'ICP',
+        label: 'ICP Event',
+        desc: 'LED programming, projection mapping and show control for ICP',
+        images: [
+          { f:'ICP/icp (1).jpg', alt:'ICP event stage',           wide:true  },
+          { f:'ICP/icp (2).jpg', alt:'ICP LED programming'                   },
+          { f:'ICP/icp (3).jpg', alt:'ICP projection mapping'               },
+          { f:'ICP/icp (4).jpg', alt:'ICP stage visuals'                    },
+          { f:'ICP/icp (5).jpg', alt:'ICP show control'                     },
+          { f:'ICP/3.jpg',       alt:'ICP event setup'                      },
+          { f:'ICP/4.jpg',       alt:'ICP event production'                 },
+          { f:'ICP/5.jpg',       alt:'ICP lighting design'                  },
+          { f:'ICP/8.jpg',       alt:'ICP media server output'              },
+          { f:'ICP/9.jpg',       alt:'ICP LED wall'                         },
+          { f:'ICP/10.jpg',      alt:'ICP stage content'                    },
+          { f:'ICP/11.jpg',      alt:'ICP event ceremony'                   },
+          { f:'ICP/12.jpg',      alt:'ICP event visuals'                    },
+          { f:'ICP/13.jpg',      alt:'ICP grand finale',          wide:true  }
+        ]
+      },
+      {
+        id: 'JAPAN',
+        label: 'Japan Showcase',
+        desc: 'International event — visual technology showcase in Japan',
+        images: [
+          { f:'JAPAN/Japan (1).jpg', alt:'Japan showcase event stage',  wide:true  },
+          { f:'JAPAN/Japan (2).jpg', alt:'Japan showcase LED display'              },
+          { f:'JAPAN/Japan (3).jpg', alt:'Japan event production'                  },
+          { f:'JAPAN/Japan (4).jpg', alt:'Japan showcase finale'                   }
+        ]
+      },
+      {
+        id: 'K AWARD',
+        label: 'Khalifa Award',
+        desc: 'Laser show and lighting design for Khalifa Award ceremony',
+        images: [
+          { f:'K AWARD/KH AWARD (1).jpg', alt:'Khalifa Award ceremony stage',  wide:true  },
+          { f:'K AWARD/KH AWARD (2).jpg', alt:'Khalifa Award laser show'                  },
+          { f:'K AWARD/KH AWARD (3).jpg', alt:'Khalifa Award event lighting'              },
+          { f:'K AWARD/KH AWARD (4).jpg', alt:'Khalifa Award gala production'             },
+          { f:'K AWARD/KH AWARD (5).jpg', alt:'Khalifa Award closing visuals'             }
+        ]
+      },
+      {
+        id: 'NCEMA',
+        label: 'NCEMA Event',
+        desc: 'Full AV production and show control for NCEMA',
+        images: [
+          { f:'NCEMA/6.jpg',  alt:'NCEMA event stage',        wide:true  },
+          { f:'NCEMA/7.jpg',  alt:'NCEMA LED setup'                      },
+          { f:'NCEMA/8.jpg',  alt:'NCEMA event lighting'                 },
+          { f:'NCEMA/9.jpg',  alt:'NCEMA production setup'               },
+          { f:'NCEMA/10.jpg', alt:'NCEMA stage visuals'                  },
+          { f:'NCEMA/11.jpg', alt:'NCEMA media server output'            },
+          { f:'NCEMA/12.jpg', alt:'NCEMA event ceremony'                 },
+          { f:'NCEMA/13.jpg', alt:'NCEMA finale',              wide:true  }
+        ]
+      },
+      {
+        id: 'Photography',
+        label: 'Photography',
+        desc: 'Event photography — backstage, stage, and live coverage',
+        images: [
+          { f:'Photography/1.jpg',             alt:'Event photography — stage',                wide:true },
+          { f:'Photography/2.jpg',             alt:'Event photography — backstage'                       },
+          { f:'Photography/3.jpg',             alt:'Event photography — live coverage'                   },
+          { f:'Photography/4.jpg',             alt:'Event photography — audience'                        },
+          { f:'Photography/5.jpg',             alt:'Event photography — performer'                       },
+          { f:'Photography/ENS (1).jpg',       alt:'ENS event photography'                               },
+          { f:'Photography/ENS (2).jpg',       alt:'ENS backstage photography'                           },
+          { f:'Photography/ENS (3).jpg',       alt:'ENS stage photography'                               },
+          { f:'Photography/ENS (4).jpg',       alt:'ENS event coverage'                                  },
+          { f:'Photography/ENS (5).jpg',       alt:'ENS photography'                                     },
+          { f:'Photography/icp (1).jpg',       alt:'ICP event photography',                  wide:true  },
+          { f:'Photography/icp (2).jpg',       alt:'ICP backstage photography'                           },
+          { f:'Photography/icp (3).jpg',       alt:'ICP stage photography'                               },
+          { f:'Photography/icp (4).jpg',       alt:'ICP event coverage'                                  },
+          { f:'Photography/icp (5).jpg',       alt:'ICP photography'                                     },
+          { f:'Photography/Japan (1).jpg',     alt:'Japan event photography'                             },
+          { f:'Photography/Japan (2).jpg',     alt:'Japan stage photography'                             },
+          { f:'Photography/Japan (3).jpg',     alt:'Japan event coverage'                                },
+          { f:'Photography/Japan (4).jpg',     alt:'Japan photography'                                   },
+          { f:'Photography/KH AWARD (1).jpg',  alt:'Khalifa Award photography',              wide:true  },
+          { f:'Photography/KH AWARD (2).jpg',  alt:'Khalifa Award backstage photography'                 },
+          { f:'Photography/KH AWARD (3).jpg',  alt:'Khalifa Award stage photography'                     },
+          { f:'Photography/KH AWARD (4).jpg',  alt:'Khalifa Award event coverage'                        },
+          { f:'Photography/KH AWARD (5).jpg',  alt:'Khalifa Award photography'                           },
+          { f:'Photography/LaserShow (1).jpg', alt:'Laser show photography'                              },
+          { f:'Photography/LaserShow (2).jpg', alt:'Laser show beams photography'                        },
+          { f:'Photography/LaserShow (3).jpg', alt:'Laser show stage photography'                        },
+          { f:'Photography/LaserShow (4).jpg', alt:'Laser show effects photography'                      },
+          { f:'Photography/LaserShow (5).jpg', alt:'Laser show design photography'                       },
+          { f:'Photography/LaserShow (6).jpg', alt:'Laser show programming'                              },
+          { f:'Photography/LaserShow (7).jpg', alt:'Laser show live coverage'                            },
+          { f:'Photography/LaserShow (8).jpg', alt:'Laser show grand finale',               wide:true  }
+        ]
+      }
+    ];
+
+    /* ── LIGHTBOX STATE ── */
+    let lbImages = []; // flat array of all visible images {src, alt, cat}
+    let lbIndex  = 0;
+
+    const lightbox  = document.getElementById('lightbox');
+    const lbImg     = document.getElementById('lbImg');
+    const lbCounter = document.getElementById('lbCounter');
+    const lbLabel   = document.getElementById('lbLabel');
+
+    function openLightbox(images, idx){
+      lbImages = images; lbIndex = idx;
+      showLbImage();
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox(){
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function showLbImage(){
+      const item = lbImages[lbIndex];
+      lbImg.src   = item.src;
+      lbImg.alt   = item.alt;
+      lbLabel.textContent = item.cat || '';
+      lbCounter.textContent = (lbIndex+1) + ' / ' + lbImages.length;
+    }
+    function lbGo(dir){
+      lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
+      showLbImage();
+    }
+
+    document.getElementById('lbClose').addEventListener('click', closeLightbox);
+    document.getElementById('lbPrev').addEventListener('click', () => lbGo(-1));
+    document.getElementById('lbNext').addEventListener('click', () => lbGo(+1));
+    lightbox.addEventListener('click', e => { if(e.target===lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if(!lightbox.classList.contains('open')) return;
+      if(e.key==='Escape')      closeLightbox();
+      if(e.key==='ArrowLeft')   lbGo(-1);
+      if(e.key==='ArrowRight')  lbGo(+1);
+    });
+
+    /* ── RENDER GALLERY ── */
+    function enc(str){ return str.replace(/\(/g,'%28').replace(/\)/g,'%29').replace(/ /g,'%20'); }
+
+    function renderGallery(activeCat){
+      const main = document.getElementById('galleryMain');
+      main.innerHTML = '';
+
+      const cats = activeCat === 'all'
+        ? CATEGORIES
+        : CATEGORIES.filter(c => c.id === activeCat);
+
+      if(!cats.length){
+        main.innerHTML = '<p class="gl-empty">No images found.</p>';
+        return;
+      }
+
+      // Build flat lightbox images array for current view
+      const allImagesFlat = [];
+      cats.forEach(cat => {
+        cat.images.forEach(img => {
+          allImagesFlat.push({ src: BASE + enc(img.f), alt: img.alt, cat: cat.label });
+        });
+      });
+
+      let totalImgs = 0;
+      cats.forEach((cat, ci) => {
+        totalImgs += cat.images.length;
+
+        const sec = document.createElement('div');
+        sec.className = 'reveal-up';
+        sec.style.cssText = `transition-delay:${ci*0.05}s`;
+
+        const labelEl = document.createElement('div');
+        labelEl.className = 'gl-category-label';
+        labelEl.innerHTML = `${cat.label} <span>${cat.images.length} images</span>`;
+        sec.appendChild(labelEl);
+
+        if(cat.desc){
+          const descEl = document.createElement('p');
+          descEl.style.cssText = 'font-family:var(--ff-b);font-style:italic;font-size:.92rem;color:var(--chalk2);margin-bottom:20px;';
+          descEl.textContent = cat.desc;
+          sec.appendChild(descEl);
+        }
+
+        const grid = document.createElement('div');
+        grid.className = 'gl-grid';
+
+        // Find the index offset in allImagesFlat for this category's images
+        let flatOffset = 0;
+        for(let i=0; i<ci; i++) flatOffset += cats[i].images.length;
+
+        cat.images.forEach((img, ii) => {
+          const src = BASE + enc(img.f);
+          const flatIdx = flatOffset + ii;
+
+          const item = document.createElement('div');
+          item.className = 'g-item' + (img.wide?' wide':'') + (img.tall?' tall':'');
+          item.setAttribute('role','button');
+          item.setAttribute('tabindex','0');
+          item.setAttribute('aria-label', 'View: ' + img.alt);
+
+          item.innerHTML = `
+            <img src="${src}" alt="${img.alt}" loading="lazy" decoding="async">
+            <div class="g-overlay"><span class="g-label">${cat.label}</span></div>
+            <div class="g-expand" aria-hidden="true"><i class="fas fa-expand"></i></div>
+          `;
+
+          const openFn = () => openLightbox(allImagesFlat, flatIdx);
+          item.addEventListener('click', openFn);
+          item.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openFn(); } });
+
+          grid.appendChild(item);
+        });
+
+        sec.appendChild(grid);
+        main.appendChild(sec);
+        revIO.observe(sec);
+      });
+
+      // Update counts
+      document.getElementById('totalCount').textContent = activeCat === 'all'
+        ? CATEGORIES.reduce((s,c) => s + c.images.length, 0)
+        : totalImgs;
+      document.getElementById('catCount').textContent = activeCat === 'all'
+        ? CATEGORIES.length
+        : 1;
+    }
+
+    /* ── FILTER BUTTONS ── */
+    const filterBtns = document.querySelectorAll('.gl-filter-btn');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderGallery(btn.dataset.cat || 'all');
+        // Scroll to gallery
+        document.getElementById('galleryMain').scrollIntoView({ behavior:'smooth', block:'start' });
+      });
+    });
+
+    /* ── INIT ── */
+    renderGallery('all');
+
+  })();
+  </script>
+</body>
+</html>
