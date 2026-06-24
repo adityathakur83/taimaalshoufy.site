@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" fill="none">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ece5d8"/><stop offset="1" stop-color="#ddd0bb"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#cdbfa6"/><stop offset="1" stop-color="#bca888"/>
+    </linearGradient>
+  </defs>
+  <!-- room block -->
+  <rect x="60" y="40" width="480" height="430" rx="6" fill="url(#wall)"/>
+  <!-- arch opening -->
+  <path d="M170 470 V230 a130 130 0 0 1 260 0 V470 Z" fill="#f4f0e8"/>
+  <path d="M170 470 V230 a130 130 0 0 1 260 0 V470" stroke="#b06a4f" stroke-width="3" fill="none"/>
+  <!-- inner arch shadow -->
+  <path d="M205 470 V235 a95 95 0 0 1 190 0 V470 Z" fill="#e7ddca"/>
+  <!-- floor -->
+  <rect x="60" y="440" width="480" height="30" fill="url(#floor)"/>
+  <!-- thin frame lines -->
+  <rect x="60" y="40" width="480" height="430" rx="6" stroke="#1d1a16" stroke-opacity="0.18" stroke-width="2"/>
+  <line x1="95" y1="90" x2="95" y2="430" stroke="#1d1a16" stroke-opacity="0.1"/>
+  <line x1="505" y1="90" x2="505" y2="430" stroke="#1d1a16" stroke-opacity="0.1"/>
+</svg>

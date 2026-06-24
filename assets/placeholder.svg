@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none" preserveAspectRatio="xMidYMid slice">
+  <rect width="800" height="600" fill="#1a150f"/>
+  <rect width="800" height="600" fill="url(#g)"/>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#221c14"/><stop offset="1" stop-color="#100c08"/>
+  </linearGradient></defs>
+  <!-- line-art interior in gold -->
+  <g stroke="#c9a86a" stroke-opacity="0.55" stroke-width="2" fill="none">
+    <rect x="120" y="120" width="560" height="360"/>
+    <path d="M120 480 L320 300 L680 300"/>
+    <path d="M320 300 L320 480"/>
+    <rect x="380" y="340" width="180" height="140"/>
+    <circle cx="220" cy="220" r="40"/>
+    <path d="M560 200 q40 0 40 60 v40 h-80 v-40 q0 -60 40 -60"/>
+  </g>
+  <text x="400" y="560" text-anchor="middle" font-family="Jost, sans-serif" font-size="20" letter-spacing="4" fill="#978b79">REPLACE WITH PROJECT IMAGE</text>
+</svg>
